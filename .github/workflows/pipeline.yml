@@ -1,3 +1,5 @@
+
+
 name: Build and Test Cookbook
 
 on:
@@ -22,7 +24,7 @@ jobs:
       run: npm install
     - name: Run the unit tests
       run: npm run test:unit
-    - name: Display softuni username
+    - name: Display softuni username - hyus314
       run: echo "hyus314"
 
   run-ui-tests:
@@ -46,3 +48,12 @@ jobs:
     - name: Run the UI tests
       run: npm run test:ui
 
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: run-ui-tests
+    steps:
+      - name: Deploy to production
+        uses: JorgeLNJunior/render-deploy@v1.4.4
+        with:
+          service_id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.MY_RENDER_API_KEY }}

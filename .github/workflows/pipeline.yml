@@ -20,7 +20,5 @@ jobs:
         cache: 'npm'
     - name: Install NPM dependencies
       run: npm install
-    - name: Run app locally
-      run: npm start
     - name: Run the unit tests
       run: npm run test:unit

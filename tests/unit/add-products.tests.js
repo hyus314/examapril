@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 suite('Add Products page', function() {
   test('Page title', async function() {
-    let res = await fetch("http://localhost:8888/add-product");
+    let res = await fetch("http://localhost:8080/add-product");
     let body = await res.text();
     assert.ok(body.includes("<h1>Add New Product</h1>"));
   });
